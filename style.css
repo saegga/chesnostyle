@@ -1,0 +1,48 @@
+
+/* 
+ Theme Name:     Bare bones for Divi
+ Author:         Divi theme examples
+ Author URI:     http://www.divithemeexamples.com 
+ Template:       Divi
+ Version:        1.0 
+*/ 
+
+
+/* ----------- PUT YOUR CUSTOM CSS BELOW THIS LINE -- DO NOT EDIT ABOVE THIS LINE --------------------------- */ 
+
+body{
+    font-family: "Cormorant", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
+}
+header{
+    margin-top: 72px;
+    margin-bottom: 66px;
+}
+.header-line{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+header .header-logo .name{
+    font-size: 24px;
+    color: #00021F;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+header .header-logo .descr{
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #FDC4B6;
+}
+
+@media(min-width: 1450px){
+    .container{
+        width: 100%;
+        max-width: 1444px;
+        margin: 0 auto;
+    }
+}
