@@ -29,18 +29,52 @@
     <div class="container">
         <div class="header-line">
             <div class="header-logo">
-                <p class="name">Надежда Чеснокова</p>
+                <p class="name">
+                    Надежда Чеснокова
+                </p>
                 <span class="descr">Персональный стилист</span>
             </div>
+            <?
+                    wp_nav_menu( [
+                        'theme_location'  => 'top',
+                        'menu'            => '', 
+                        'container'       => 'div', 
+                        'container_class' => 'header-menu', 
+                        'container_id'    => '',
+                        'menu_class'      => 'menu', 
+                        'menu_id'         => '',
+                        'echo'            => true,
+                        'fallback_cb'     => 'wp_page_menu',
+                        'before'          => '',
+                        'after'           => '',
+                        'link_before'     => '',
+                        'link_after'      => '',
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'depth'           => 0,
+                        'walker'          => '',
+                    ] );
+                ?>
             <div class="header-menu">
-                <ul>
-                    <li><a href=""></a>Начни Здесь</li>
-                    <li><a href=""></a>О стиле понятно</li>
-                    <li><a href=""></a>Курсы</li>
-                </ul>
+                <!-- <ul class="">
+                    <li><a href="">Начни Здесь</a></li>
+                    <li><a href="">О стиле понятно</a> </li>
+                    <li><a href="">Курсы</a></li>
+                    <li><a href="">Услуги</a></li>
+                    <li><a href="">О проекте</a></li>
+                </ul> -->
             </div>
             <div class="header-user-info">
-
+                <a href="/my-account/" class="account"></a>
+                <?php
+					if ( ! $et_top_info_defined && ( ! $et_slide_header || is_customize_preview() ) ) {
+						et_show_cart_total( array(
+							'no_text' => true,
+						) );
+					}
+					?>
+                <a href="" class="cart">
+                    <i class="count">1</i>
+                </a>
             </div>
         </div>
     </div>
