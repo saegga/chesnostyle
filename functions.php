@@ -14,50 +14,33 @@ function theme_register_nav_menu() {
 }
 
 
-function dcwd_get_cart_icon_with_count() {
-	if ( class_exists( 'WC_Quotation' ) ) {
-		$cart_item_count = count( WC_Adq()->quote->get_quote() );
+if ( ! function_exists( 'cart_link' ) ) {
+	function cart_link() {
+		?>
+        <a href="/cart/" class="cart">
+            <?if( WC()->cart->cart_contents_count > 0):?>
+                <i class="count"><?//= WC()->cart->get_cart_total();?></i>
+            <?endif;?>
+        </a>
+		<?
 	}
-	else {
-		$cart_item_count = WC()->cart->get_cart_contents_count();
-	}
-
-	$cart_count_span = '';
-	if ( $cart_item_count ) {
-		$cart_count_span = '<span class="count">'.$cart_item_count.'</span>';
-	}
-	
-	if ( class_exists( 'WC_Quotation' ) ) {
-		$cart_url = StaticAdqQuoteRequest::get_quote_list_link();
-	}
-	else {
-		$cart_url = get_permalink( wc_get_page_id( 'cart' ) );
-	}
-	$cart_link = '<a class="cart-icon" href="' . $cart_url . '"><i class="fa fa-shopping-bag"></i>'.$cart_count_span.'</a>';
-
-	return $cart_link;
 }
 
+//Ajax Обновление кратких данных из корзины
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 
-// Add cart icon to the top of page content.
-add_filter( 'the_content', 'dcwd_add_cart_icon_to_top_of_content' );
-function dcwd_add_cart_icon_to_top_of_content( $content ) {
-	if ( is_single() || is_page() ) {
-		// Add the cart link to the start of the content.
-		return dcwd_get_cart_icon_with_count() . $content;
-	}
-
-	return $content;
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	ob_start();
+	?>
+    <a href="/cart/" class="cart">
+        <?if( WC()->cart->cart_contents_count > 0):?>
+                    <i class="count"><?//= WC()->cart->get_cart_total();?></i>
+                <?endif;?>
+        </a>
+	<?php
+	$fragments['a.cart'] = ob_get_clean();
+	return $fragments;
 }
-
-// Add to top of shop, product category archive pages and cart pages
-add_action( 'woocommerce_archive_description', 'dcwd_add_cart_icon_to_top_of_wc_pages' );
-// Add to top of single product pages.
-add_action( 'woocommerce_before_single_product', 'dcwd_add_cart_icon_to_top_of_wc_pages' );
-function dcwd_add_cart_icon_to_top_of_wc_pages() {
-	echo dcwd_get_cart_icon_with_count();
-}
-
 // if ( ! function_exists( 'et_builder_get_google_fonts' ) ) :
 //     function et_builder_get_google_fonts() {
 //        $google_fonts = array(

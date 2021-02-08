@@ -65,16 +65,7 @@
             </div>
             <div class="header-user-info">
                 <a href="/my-account/" class="account"></a>
-                <?php
-					if ( ! $et_top_info_defined && ( ! $et_slide_header || is_customize_preview() ) ) {
-						et_show_cart_total( array(
-							'no_text' => true,
-						) );
-					}
-					?>
-                <a href="" class="cart">
-                    <i class="count">1</i>
-                </a>
+                <?cart_link();?>
             </div>
         </div>
     </div>
