@@ -23,9 +23,10 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
-
+header .header-logo{
+    position: relative;
+}
 header .header-logo .name{
     font-size: 24px;
     color: #00021F;
@@ -37,6 +38,17 @@ header .header-logo .descr{
     font-size: 12px;
     font-weight: 400;
     color: #FDC4B6;
+    letter-spacing: 0.6px;
+}
+
+header .header-logo .descr:before{
+    content: "";
+    position: absolute;
+    height: 1px;
+    background-color: #FDC4B6;
+    width: 42%;
+    left: 0;
+    top: 33px;
 }
 
 @media(min-width: 1450px){
