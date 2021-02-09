@@ -113,10 +113,59 @@ header .header-logo .descr:before{
     right: -3px;
     top: -3px;
 }
+.wa_banner_text{
+    position: absolute;
+    top: 40px;
+    padding-left: 122px;
+    width: 100%;
+    z-index: 500;
+}
+.wa_banner{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+}
+.wa_banner:before{
+    display: inline-block;
+    content: '';
+    background-image: url(images/wa.svg);
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.banner-socials-block{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    padding-right: 150px;
+    z-index: 500;
+} 
+.banner-socials-block li{
+    margin-right: 30px;
+}
+.banner-socials-block li:last-child{
+    margin-right: 0;
+}
+.info-banner{display: none;}
+
+.cart_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 148px;
+}
+.cart_item .et_pb_button:after,
+.cart_item .et_pb_button:before{
+    line-height: 0;
+}
+
+
+
 @media(min-width: 1450px){
     .container{
         width: 100%;
-        max-width: 1444px;
+        max-width: 1444px !important;
         margin: 0 auto;
     }
 }
