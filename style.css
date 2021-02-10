@@ -160,7 +160,26 @@ header .header-logo .descr:before{
     line-height: 0;
 }
 
-
+.block-photo{
+    width: 332px;
+    height: 241px;
+    position: absolute;
+    background: antiquewhite;
+    left: 340px;
+    top: -225px;
+    z-index: -1;
+    background-color: #2694AB;
+}
+.ramka-subscribe{
+    position: absolute;
+    width: 384px;
+    height: 544px;
+    border: 3px solid #FFFFFF;
+    background: transparent;
+    top: -585px;
+    left: -25px;
+    z-index: -1;
+}
 
 @media(min-width: 1450px){
     .container{
